@@ -2,16 +2,13 @@
 @section('content')
 <div class="card mt-3">
     <div>
-        <h5>Clientes</h5>
-        <a href="{{ route ('clientes.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus"></i>
-            Agregar
-        </a>
-
-        <a href="{{ route ('clientes.pdf') }}" class="btn btn-info">
+        <h5>Categorias</h5>
+        
+        <a href="{{ route ('categorias.pdf') }}" class="btn btn-info">
             <i class="fas fa-file-pdf"></i>
             Exportar
         </a>
+      
     </div>
 </div>
 
@@ -44,43 +41,19 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Dirección</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($clientes as $cliente)
+                @foreach($categorias as $categoria)
                 <tr>
-                    <th scope="row">{{$cliente->idCliente}}</th>
-                    <td>{{$cliente->nombre}}</td>
-                    <td>{{$cliente->telefono}}</td>
-                    <td>{{$cliente->correo}}</td>
-                    <td>{{$cliente->direccion}}</td>
+                    <th scope="row">{{$categoria->idCategoria}}</th>
+                    <td>{{$categoria->nombre}}</td>
                     <td>
 
-                        <a href="{{route ('clientes.show', $cliente->idCliente)}}" class="btn btn-info">
+                        <a href="{{route ('categorias.show', $categoria->idCategoria)}}" class="btn btn-info">
                             <i class="fas fa-eye"></i> 
                             Ver
                         </a>
-
-                        <a href="{{route ('clientes.edit', $cliente->idCliente)}}" class="btn btn-warning"> 
-                            <i class="fas fa-pen"></i> 
-                            Editar
-                        </a>
-
-                        <button type="submit" class="btn btn-danger btn-sm"
-                                form="delete_{{$cliente->idCliente}}"
-                                onclick="return confirm('¿Estás seguro de eliminar el registro?')">
-                                <i class="fas fa-trash"></i>
-                                Eliminara   
-                            </button>
-                        <form action="{{route('clientes.destroy', $cliente->idCliente)}}"
-                              id="delete_{{$cliente->idCliente}}" method="post" enctype="multipart/form-data"
-                              hidden>
-                              @csrf
-                              @method('DELETE')
-                        </form>
 
                     </td>
                 </tr>
@@ -98,12 +71,12 @@
 <script type="text/javascript">
 
     $('#limit').on('change',function(){
-        window.location.href = '{{ route('clientes.index') }}?limit='+$(this).val()+'&search='+$('#search').val()
+        window.location.href = '{{ route('categorias.index') }}?limit='+$(this).val()+'&search='+$('#search').val()
     })
 
     $('#search').on('keyup',function(e){
         if(e.keyCode== 13){
-            window.location.href = '{{ route('clientes.index') }}?limit='+$('#limit').val()+'&search='+$(this).val()
+            window.location.href = '{{ route('categorias.index') }}?limit='+$('#limit').val()+'&search='+$(this).val()
         }
     })
 </script>

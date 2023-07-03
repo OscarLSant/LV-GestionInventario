@@ -29,7 +29,9 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+            <!-- Si elimino lo de abajo si jala, sin embargo
+            si lo comento o lo dejo no jala :( -->
+            {{ $slot }}
             </main>
         </div>
     </body>

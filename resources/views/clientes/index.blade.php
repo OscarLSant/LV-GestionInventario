@@ -16,9 +16,10 @@
                 <div class="p-6 text-gray-900">
                     {{-- {{ __("Vista de clientes") }} --}}
 
-                    <a href="{{ route ('clientes.create') }}" class="btn btn-success" style="margin-bottom:  25px;"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nuevo cliente</a>
-                    <div align="right">
-                        <div class="form-group col-4">
+                    <a href="{{ route ('clientes.create') }}" class="btn btn-success" style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nuevo cliente</a>
+
+                    <div align="right" style="display: inline;">
+                        <div class="form-group col-4" style="display: inline">
                             <a class="navbar-brand">Listar</a>
                             <select class="custom-select" id="limit" name="limit">
                                 @foreach([5,10,15,20] as $limit)
@@ -26,7 +27,7 @@
                                     {{($_GET['limit']==$limit)?'selected': ''}}@endif>{{$limit}}</option>
                                 @endforeach
                             </select>
-                            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
+                            <input style="width: 30%; display: inline" class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
                             value="{{ (isset($_GET['search']))?$_GET['search']:'' }}"> 
                         </div>
                     </div>

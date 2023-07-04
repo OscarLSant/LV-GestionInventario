@@ -6,20 +6,6 @@
         </h2>
     </x-slot>
 
-    @if(session('message'))
-    <div class="alert alert-success" role="alert">
-        {{ session('message') }}
-    </div>
-@endif
-
-@if(session('danger'))
-    <div class="alert alert-danger" role="alert">
-    {{ session('danger') }}
-    </div>
-@endif
-    
-    
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -56,6 +42,18 @@
 
                     <div class="table-responsive">
 
+
+                        @if(session('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('message') }}
+                        </div>
+                        @endif
+
+                        @if(session('danger'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('danger') }}
+                        </div>
+                        @endif
                         <table class="table table-hover table-info table-striped">
                             <thead>
                                 <tr>
@@ -72,7 +70,7 @@
                                     <th scope="row">{{$producto->idProducto}}</th>
                                     <td>{{$producto->nombre}}</td>
                                     <td>{{$producto->detalles}}</td>
-                                    <td>{{$producto->categoria}}</td>
+                                    <td>{{$producto->categorias->nombre}}</td>
                                     <td>
 
                                         <a href="{{route ('productos.show', $producto->idProducto)}}"

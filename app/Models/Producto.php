@@ -18,7 +18,7 @@ class Producto extends Model
         'detalles'
     ];
 
-    public function clientes(){
+    public function categorias(){
         return $this->belongsTo('App\Models\modelCategorias', 'idCategoria', 'idCategoria');
     }
 }

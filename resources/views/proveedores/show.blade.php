@@ -1,49 +1,50 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Proveedores / Detalles del proveedor') }}
+        </h2>
+    </x-slot>
 
-@csrf
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    
+                    <h1 style="text-align: center; font-size: 25px">Información general del proveedor: {{ $proveedor->nombre}}</h1>
+                    <a href="{{ route('proveedores.index') }}" class="btn btn-danger"><i class="fa-solid fa-arrow-left fa-shake" style="color: #ffffff;"></i> Regresar</a>
+                    
+                    <div class="row">
+                        <div class="col align-self-start">
+                        </div>
+                    
+                        <div class="col align-self-center">
+                    
+                            <label for=""><b>Nomnbre: </b></label>
+                            <label for=""> {{$proveedor->nombre}} </label>
+                            
+                            <br><br>
+                    
+                            <label for=""><b>Teléfono: </b></label>
+                            <label for=""> {{$proveedor->telefono}} </label>
 
-<div class="card mt-3">
-    <div class="card-header -inline-flex">
-        <h3>Formulario para ver el cliente</h3>
-        <a href="{{ route ('proveedores.index') }}" class="btn btn-primary ml-auto">
-        <i class="fa-solid fa-house-person-return"></i>
-        Regresar        
-        </a>
-        
-    </div>
-</div>
+                            <br><br>
+                    
+                            <label for=""><b>Correo electrónico: </b></label>
+                            <label for=""> {{$proveedor->correo}} </label>
+                    
+                            <br><br>
+                    
+                            <label for=""><b>Dirección: </b></label>
+                            <label for=""> {{$proveedor->direccion}} </label>
+                        
+                        </div>
+                    
+                        <div class="col align-self-end">
+                        </div>
+                    </div>
 
-<div class="row">
-    <div class="col-12">
-        <div class="form-group">
-            <label for="">Nombre</label>
-            <input type="text" class="form-control" name="nombre" readonly value="{{ (isset($proveedor))?$proveedor->nombre:old('nombre') }}" required>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="col-12">
-        <div class="form-group">
-            <label for="">Telefono</label>
-            <input type="text" class="form-control" name="telefono" readonly value="{{ (isset($proveedor))?$proveedor->telefono:old('telefono') }}" required>
-        </div>
-    </div>
-
-    <div class="col-12">
-        <div class="form-group">
-            <label for="">Correo</label>
-            <input type="text" class="form-control" name="correo" readonly value="{{ (isset($proveedor))?$proveedor->correo:old('correo') }}" required>
-        </div>
-    </div>
-
-    <div class="col-12">
-        <div class="form-group">
-            <label for="">Dirección</label>
-            <input type="text" class="form-control" name="direccion" readonly value="{{ (isset($proveedor))?$proveedor->direccion:old('correo') }}" required>
-        </div>
-    </div>
-
-
-</div>
-
-@endsection
+</x-app-layout>

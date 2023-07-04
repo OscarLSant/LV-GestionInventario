@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documento de categorias</title>
 
     <style type="text/css">
         body {
@@ -101,8 +101,8 @@
     
 <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
-            <tr>
+        <thead>
+                <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                 </tr>

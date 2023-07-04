@@ -33,7 +33,8 @@ class controllerCategorias extends Controller
      */
     public function create()
     {
-        //
+        $categorias = modelCategorias::get();
+        return view('categorias.create', compact('categorias'));
     }
 
     /**
@@ -41,7 +42,15 @@ class controllerCategorias extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new modelCategorias();
+        $categoria = $this->createUpdateCategorias($request, $categoria);
+        return redirect()->route('categorias.index');
+    }
+
+    public function createUpdateCategorias(Request $request, $categoria){
+        $categoria->nombre=$request->nombre;
+        $categoria->save();
+        return $categoria;
     }
 
     /**
@@ -74,7 +83,13 @@ class controllerCategorias extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria=modelCategorias::findOrFail($id);
+        try{
+            $categoria->delete();
+            return redirect()->route('categorias.index')->with('message', 'Registro eliminado correctamente.');
+        }catch(QueryException $e){
+            return redirect()->route('categorias.index')->with('message', 'Registro relacionado imposible de eliminer.');;
+        }
     }
 
     public function exportPDF(){

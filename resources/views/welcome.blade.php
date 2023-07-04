@@ -20,7 +20,6 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 
-        
 
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top"> 
@@ -39,16 +38,15 @@
                 
                 @if (Route::has('login'))
                 
-                    @auth
-                        <a href="{{ url('/home') }}" class="nav-link">Inicio</a>
+                @auth
+                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="nav-link">Iniciar sesión</a>
+                        <a href="{{ route('login') }}" class="nav-link">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="nav-link">Registrarse</a>
+                            <a href="{{ route('register') }}" class="nav-link">Register</a>
                         @endif
                     @endauth
-                    </div>
             @endif
             </div>
         </nav>

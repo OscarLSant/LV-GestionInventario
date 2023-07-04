@@ -15,7 +15,7 @@ class controllerClientes extends Controller
     public function index(Request $request)
     {
         $clientes = modelClientes::select('*')->orderBy('idCliente', 'ASC');
-        $limit=(isset($request->limit)) ? $request->limit:5;
+        $limit=(isset($request->limit)) ? $request->limit:5;    
 
         if(isset($request->search)){
             $clientes = $clientes->where('idCliente', 'like', '%'.$request->search.'%')

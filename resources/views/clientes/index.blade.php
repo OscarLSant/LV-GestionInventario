@@ -16,6 +16,7 @@
                 <div class="p-6 text-gray-900">
                     {{-- {{ __("Vista de clientes") }} --}}
 
+
                     <a href="{{ route ('clientes.create') }}" class="btn btn-success" style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nuevo cliente</a>
 
                     <div align="right" style="display: inline;">
@@ -33,6 +34,9 @@
                     </div>
 
                     <div class="table-responsive">
+                        
+                        @include('components.flash_alerts')
+
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -71,6 +75,15 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    <div class="card-footer">
+                        @if($clientes->total() > 10)
+                        {{$clientes->links()}}
+                        @endif
+                     </div>
+
+                    
+
                     </div>
 
                 </div>
@@ -78,3 +91,19 @@
         </div>
     </div>
 </x-app-layout>
+
+ <!-- VA EN EL INDEX AL FINAL -->
+                    @section('scripts')
+                    <script type="text/javascript">
+
+                        $('#limit').on('change',function(){
+                            window.location.href = '{{ route('clientes.index') }}?limit='+$(this).val()+'&search='+$('#search').val()
+                        })
+
+                        $('#search').on('keyup',function(e){
+                            if(e.keyCode== 13){
+                                window.location.href = '{{ route('clientes.index') }}?limit='+$('#limit').val()+'&search='+$(this).val()
+                            }
+                        })
+                    </script>
+                    @endsection

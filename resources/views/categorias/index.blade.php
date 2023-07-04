@@ -13,12 +13,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
 
-                <div class="p-6 text-gray-900">
+                {{-- <div class="p-6 text-gray-900"> --}}
                     {{-- {{ __("Vista de categorias") }} --}}
-
-                    <a href="{{ route ('categorias.create') }}" class="btn btn-success" style="margin-bottom:  25px;"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nueva categoria</a>
-                    <div align="right">
-                        <div class="form-group col-4">
+                    <div align="right" style="display: inline;">
+                    <a href="{{ route ('categorias.create') }}" class="btn btn-success" style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nueva categoria</a>
+                    <div align="right" style="display: inline;">
+                        <div class="form-group col-4" style="display: inline">
                             <a class="navbar-brand">Listar</a>
                             <select class="custom-select" id="limit" name="limit">
                                 @foreach([5,10,15,20] as $limit)
@@ -26,7 +26,7 @@
                                     {{($_GET['limit']==$limit)?'selected': ''}}@endif>{{$limit}}</option>
                                 @endforeach
                             </select>
-                            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
+                            <input style="width: 30%; display: inline" class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
                             value="{{ (isset($_GET['search']))?$_GET['search']:'' }}"> 
                         </div>
                     </div>
@@ -60,10 +60,33 @@
                             @endforeach
                         </tbody>
                     </table>
-                    </div>
 
+                    <div class="card-footer">
+                        @if($categorias->total() > 10)
+                        {{$categorias->links()}}
+                        @endif
+                     </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
+
+<!-- VA EN EL INDEX AL FINAL -->
+@section('scripts')
+<script type="text/javascript">
+
+    $('#limit').on('change',function(){
+        window.location.href = '{{ route('categorias.index') }}?limit='+$(this).val()+'&search='+$('#search').val()
+    })
+
+    $('#search').on('keyup',function(e){
+        if(e.keyCode== 13){
+            window.location.href = '{{ route('categorias.index') }}?limit='+$('#limit').val()+'&search='+$(this).val()
+        }
+    })
+</script>
+@endsection

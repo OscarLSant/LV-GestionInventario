@@ -63,12 +63,11 @@
 
             <!-- Page Content -->
             <main>
-            <!-- Si elimino lo de abajo si jala, sin embargo
-            si lo comento o lo dejo no jala :( 
-                hola-->
+
             {{ $slot }}
             
             </main>
         </div>
     </body>
+    @yield('scripts')
 </html>

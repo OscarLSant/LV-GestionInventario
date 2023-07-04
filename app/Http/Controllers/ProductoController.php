@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\modelCategorias;
 use Illuminate\Http\Request;
+
+
 //para el PDF
 use PDF;
-use Barryvdh\DomPDF\Facade;
+use Barryvdh\DomPDF\ServiceProvider;
 //
 use Illuminate\Database\QueryException; 
 
@@ -147,13 +149,13 @@ class ProductoController extends Controller
 
     //FUNCION PARA GENERAR PDF
     public function exportPDF(){
-
         $productos = Producto::all();
         $pdf = PDF::loadView('productos.exportPDF', compact('productos'));
+
         //linea para mostrar hoja horizontal 
         $pdf->setPaper('a4','landscape');
 
-
+        //linea para mostrarlo en el navegador el PDF
         return $pdf->stream();
     }
 }

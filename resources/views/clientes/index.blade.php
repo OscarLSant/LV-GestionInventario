@@ -21,6 +21,10 @@
                         style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake"
                             style="color: #ffffff;"></i></i> Nuevo cliente</a>
 
+                            <a href="{{ route ('clientes.pdf') }}" class="btn btn-success"
+                        style="margin-bottom:  25px; margin-top: 17px"><i class="fas fa-file-pdf"
+                            style="color: #ffffff;"></i></i> Exportar PDF</a>
+
                     <div align="right" style="display: inline;">
                         <div class="form-group col-4" style="display: inline">
                             <a class="navbar-brand">Listar</a>

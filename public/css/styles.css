@@ -11201,3 +11201,14 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.alert {
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+.alert-message {
+  background-color: #ffc107;
+  color: #fff;
+}

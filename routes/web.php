@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\controllerCategorias;
 use App\Http\Controllers\controllerClientes;
 use App\Http\Controllers\controllerProveedores;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +44,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('clientes', controllerClientes::class);
     Route::get('clientes-pdf', [controllerClientes::class, 'exportPDF'])->name('clientes.pdf');
 
-    
+    Route::resource('productos', ProductoController::class);
+    Route::get('productos-pdf', [ProductoController::class, 'exportPDF'])->name('productos.pdf');
 
 });
 

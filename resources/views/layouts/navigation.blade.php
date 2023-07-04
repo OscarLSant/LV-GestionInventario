@@ -23,6 +23,18 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                        {{ __('Categorías') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.index')">
+                        {{ __('Proveedores') }}
+                    </x-nav-link>
+                </div>
+
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
                         <x-slot name="trigger">

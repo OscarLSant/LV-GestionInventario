@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\controllerCategorias;
+use App\Http\Controllers\controllerClientes;
+use App\Http\Controllers\controllerProveedores;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +34,17 @@ Route::middleware('auth')->group(function () {
 
 //rutas de clientes
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::resource('clientes', ClientesController::class);
+    Route::resource('categorias', controllerCategorias::class);
+    Route::get('categorias-pdf', [controllerCategorias::class, 'exportPDF'])->name('categorias.pdf');
+
+    Route::resource('proveedores', controllerProveedores::class);
+    Route::get('proveedores-pdf', [controllerProveedores::class, 'exportPDF'])->name('proveedores.pdf');
+
+    Route::resource('clientes', controllerClientes::class);
+    Route::get('clientes-pdf', [controllerClientes::class, 'exportPDF'])->name('clientes.pdf');
+
+    
+
 });
 
 require __DIR__.'/auth.php';

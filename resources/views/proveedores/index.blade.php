@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Clientes') }}
+            {{ __('Proveedores') }}
 
             
 
@@ -14,12 +14,11 @@
 
 
                 <div class="p-6 text-gray-900">
-                    {{-- {{ __("Vista de clientes") }} --}}
+                    {{-- {{ __("Vista de Proveedores") }} --}}
 
-                    <a href="{{ route ('clientes.create') }}" class="btn btn-success" style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nuevo cliente</a>
-
-                    <div align="right" style="display: inline;">
-                        <div class="form-group col-4" style="display: inline">
+                    <a href="{{ route ('proveedores.create') }}" class="btn btn-success" style="margin-bottom:  25px;"><i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i></i>   Nuevo proveedor</a>
+                    <div align="right">
+                        <div class="form-group col-4">
                             <a class="navbar-brand">Listar</a>
                             <select class="custom-select" id="limit" name="limit">
                                 @foreach([5,10,15,20] as $limit)
@@ -27,7 +26,7 @@
                                     {{($_GET['limit']==$limit)?'selected': ''}}@endif>{{$limit}}</option>
                                 @endforeach
                             </select>
-                            <input style="width: 30%; display: inline" class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
+                            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
                             value="{{ (isset($_GET['search']))?$_GET['search']:'' }}"> 
                         </div>
                     </div>
@@ -45,22 +44,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($clientes as $cliente)
+                            @foreach($proveedores as $proveedor)
                             <tr>
-                                <th scope="row">{{$cliente->idCliente}}</th>
-                                <td>{{$cliente->nombre}}</td>
-                                <td>{{$cliente->telefono}}</td>
-                                <td>{{$cliente->correo}}</td>
-                                <td>{{$cliente->direccion}}</td>
+                                <th scope="row">{{$proveedor->idProveedor}}</th>
+                                <td>{{$proveedor->nombre}}</td>
+                                <td>{{$proveedor->telefono}}</td>
+                                <td>{{$proveedor->correo}}</td>
+                                <td>{{$proveedor->direccion}}</td>
                                 <td>
             
-                                    <a href="{{route ('clientes.show', $cliente->idCliente)}}" class="btn btn-primary"><i class="fa-regular fa-eye" style="color: #ffffff;"></i></a>
+                                    <a href="{{route ('proveedores.show', $proveedor->idProveedor)}}" class="btn btn-primary"><i class="fa-regular fa-eye" style="color: #ffffff;"></i></a>
             
-                                    <a href="{{route ('clientes.edit', $cliente->idCliente)}}" class="btn btn-warning"> <i class="fa-solid fa-pencil" style="color: #ffffff;"></i></a>
+                                    <a href="{{route ('proveedores.edit', $proveedor->idProveedor)}}" class="btn btn-warning"> <i class="fa-solid fa-pencil" style="color: #ffffff;"></i></a>
             
-                                    <button type="submit" class="btn btn-danger" form="delete_{{$cliente->idCliente}}" onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                                    <form action="{{route('clientes.destroy', $cliente->idCliente)}}"
-                                          id="delete_{{$cliente->idCliente}}" method="post" enctype="multipart/form-data"
+                                    <button type="submit" class="btn btn-danger" form="delete_{{$proveedor->idProveedor}}" onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+                                    <form action="{{route('proveedores.destroy', $proveedor->idProveedor)}}"
+                                          id="delete_{{$proveedor->idProveedor}}" method="post" enctype="multipart/form-data"
                                           hidden>
                                           @csrf
                                           @method('DELETE')

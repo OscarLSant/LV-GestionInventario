@@ -5,7 +5,9 @@ use App\Http\Controllers\controllerCategorias;
 use App\Http\Controllers\controllerClientes;
 use App\Http\Controllers\controllerProveedores;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentaController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\VentaStockController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +52,13 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::resource('stocks', StockController::class);
     Route::get('stocks-pdf', [StockController::class, 'exportPDF'])->name('stocks.pdf');
+
+    Route::resource('ventas', VentaController::class);
+    Route::get('ventas-pdf', [VentaController::class, 'exportPDF'])->name('ventas.pdf');
+
+    Route::resource('venta_stocks', VentaStockController::class);
+    Route::get('venta_stocks-pdf', [VentaStockController::class, 'exportPDF'])->name('venta_stocks.pdf');
 });
+
 
 require __DIR__.'/auth.php';

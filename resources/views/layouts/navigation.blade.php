@@ -72,8 +72,12 @@
                                 {{ __('Stocks') }}
                             </x-dropdown-link>
     
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Ventas / Salidas') }}
+                            <x-dropdown-link :href="route('ventas.index')">
+                                {{ __('Ventas') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('venta_stocks.index')">
+                                {{ __('Ventas/Stocks') }}
                             </x-dropdown-link>
 
                         </x-slot>

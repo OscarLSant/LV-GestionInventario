@@ -88,7 +88,7 @@ class controllerCategorias extends Controller
             $categoria->delete();
             return redirect()->route('categorias.index')->with('message', 'Registro eliminado correctamente.');
         }catch(QueryException $e){
-            return redirect()->route('categorias.index')->with('message', 'Registro relacionado imposible de eliminer.');;
+            return redirect()->route('categorias.index')->with('message', 'No se puede eliminar el registro.');;
         }
     }
 

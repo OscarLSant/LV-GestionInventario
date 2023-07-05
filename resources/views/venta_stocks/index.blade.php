@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Clientes') }}
-
-
+            {{ __('Venta-Stock') }}
 
         </h2>
     </x-slot>
@@ -14,16 +12,19 @@
 
 
                 <div class="p-6 text-gray-900">
-                    {{-- {{ __("Vista de clientes") }} --}}
+                    {{-- {{ __("Vista de Venta-venta_Stocks") }} --}}
 
 
-                    <a href="{{ route ('clientes.create') }}" class="btn btn-success"
-                        style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake"
-                            style="color: #ffffff;"></i></i> Nuevo cliente</a>
+                    <div class="column">
+                        <a href="{{ route ('venta_stocks.create') }}" class="btn btn-success"
+                            style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake"
+                                style="color: #ffffff;"></i></i> Nuevo stock</a>
 
-                            <a href="{{ route ('clientes.pdf') }}" class="btn btn-success"
-                        style="margin-bottom:  25px; margin-top: 17px"><i class="fas fa-file-pdf"
-                            style="color: #ffffff;"></i></i> Exportar PDF</a>
+                        <a href="{{route ('venta_stocks.pdf') }}" class="btn btn-primary"
+                        style="margin-bottom:  25px; margin-top: 17px">Generar <i
+                                class="fas fa-sharp fa-light fa-file-pdf"></i>
+                        </a>
+                    </div>
 
                     <div align="right" style="display: inline;">
                         <div class="form-group col-4" style="display: inline">
@@ -38,9 +39,10 @@
                                 id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
                                 value="{{ (isset($_GET['search']))?$_GET['search']:'' }}">
                         </div>
-                    </div>
+                    </div><br><br>
 
                     <div class="table-responsive">
+
 
                         @if(session('message'))
                         <div class="alert alert-success" role="alert">
@@ -53,80 +55,82 @@
                             {{ session('danger') }}
                         </div>
                         @endif
-
-                        
-
-                        <table class="table table-striped">
+                        <table class="table table-hover table-info table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Dirección</th>
-                                    <th style="padding-right: 75px">Acciones</th>
+                                    <th scope="col">#ID Venta-Stock</th>
+                                    <th scope="col">Venta</th> 
+                                    <th scope="col">Stock</th> 
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Descuento</th>
+                                    
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($clientes as $cliente)
+                                @foreach($venta_stocks as $venta_stock )
                                 <tr>
-                                    <th scope="row">{{$cliente->idCliente}}</th>
-                                    <td>{{$cliente->nombre}}</td>
-                                    <td>{{$cliente->telefono}}</td>
-                                    <td>{{$cliente->correo}}</td>
-                                    <td>{{$cliente->direccion}}</td>
+                                    <th scope="row">{{$venta_stock->idVentaStock}}</th>
+                                    <td>{{$venta_stock->ventas->idVenta}}</td>
+                                    <td>{{$venta_stock->stocks->idStock}}</td>
+                                    <td>{{$venta_stock->cantidad}}</td>
+                                    <td>{{$venta_stock->descuento}}</td>
                                     <td>
 
-                                        <a href="{{route ('clientes.show', $cliente->idCliente)}}"
+                                        <a href="{{route ('venta_stocks.show', $venta_stock->idVentaStock)}}"
                                             class="btn btn-primary"><i class="fa-regular fa-eye"
                                                 style="color: #ffffff;"></i></a>
 
-                                        <a href="{{route ('clientes.edit', $cliente->idCliente)}}"
+                                        <a href="{{route ('venta_stocks.edit', $venta_stock->idVentaStock)}}"
                                             class="btn btn-warning"> <i class="fa-solid fa-pencil"
                                                 style="color: #ffffff;"></i></a>
 
                                         <button type="submit" class="btn btn-danger"
-                                            form="delete_{{$cliente->idCliente}}"
-                                            onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i class="fa-regular fa-trash-xmark" style="color: #ffffff;"></i>
-                                        <form action="{{route('clientes.destroy', $cliente->idCliente)}}"
-                                            id="delete_{{$cliente->idCliente}}" method="post"
+                                            form="delete_{{$venta_stock->idVentaStock}}"
+                                            onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i
+                                                class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+                                        <form action="{{route('venta_stocks.destroy', $venta_stock->idVentaStock)}}"
+                                            id="delete_{{$venta_stock->idVentaStock}}" method="post"
                                             enctype="multipart/form-data" hidden>
                                             @csrf
                                             @method('DELETE')
                                         </form>
 
                                     </td>
+
                                 </tr>
                                 @endforeach
+
                             </tbody>
                         </table>
 
-                        <div class="card-footer">
-                            @if($clientes->total() > 10)
-                            {{$clientes->links()}}
-                            @endif
-                        </div>
+                    </div>
 
+                    <div class="card-footer">
 
+                        @if($venta_stocks->total() > 5)
+                        {{$venta_stocks->links()}}
+                        @endif
 
                     </div>
 
 
 
-                    <!-- VA EN EL INDEX AL FINAL -->
                     @section('scripts')
                     <script type="text/javascript">
                     $('#limit').on('change', function() {
-                        window.location.href = '{{ route('clientes.index') }}?limit=' + $(this).val() + '&search=' + $('#search').val()
+                        window.location.href = '{{ route('venta_stocks.index') }}?limit=' + $(this).val() + '&search=' + $('#search').val()
                     })
 
                     $('#search').on('keyup', function(e) {
                         if (e.keyCode == 13) {
-                            window.location.href = '{{ route('clientes.index') }}?limit=' + $('#limit').val() + '&search=' + $(this).val()
+                            window.location.href = '{{ route('venta_stocks.index') }}?limit=' + $('#limit').val() + '&search=' + $(this).val()
                         }
                     })
                     </script>
                     @endsection
+
+
 
                 </div>
             </div>

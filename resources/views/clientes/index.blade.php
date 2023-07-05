@@ -112,8 +112,6 @@
                     </div>
 
 
-
-                    <!-- VA EN EL INDEX AL FINAL -->
                     @section('scripts')
                     <script type="text/javascript">
                     $('#limit').on('change', function() {

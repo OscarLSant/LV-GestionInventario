@@ -18,22 +18,17 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('Gestión de usuarios') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
-                        {{ __('Categorías') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.index')">
-                        {{ __('Proveedores') }}
-                    </x-nav-link>
-                </div>
 
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
@@ -44,7 +39,7 @@
                         </x-slot>
     
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('categorias.index')">
                                 {{ __('Categorías') }}
                             </x-dropdown-link>
     
@@ -52,7 +47,7 @@
                                 {{ __('Productos') }}
                             </x-dropdown-link>
                             
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('proveedores.index')">
                                 {{ __('Proveedores') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -62,14 +57,19 @@
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Gestión de Existencias') }}</div>
                             </button>
                         </x-slot>
     
                         <x-slot name="content">
+<<<<<<< HEAD
                             <x-dropdown-link :href="route('stocks.index')">
                                 {{ __('Stocks') }}
+=======
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Stocks / Entradas') }}
+>>>>>>> 70873710fc49266128765b1c745ff23adc89caea
                             </x-dropdown-link>
     
                             <x-dropdown-link :href="route('ventas.index')">
@@ -83,6 +83,9 @@
                         </x-slot>
                     </x-dropdown>
                 </div>
+
+                
+
             </div>
 
             <!-- Settings Dropdown -->

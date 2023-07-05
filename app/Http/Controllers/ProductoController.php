@@ -20,7 +20,7 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        // $productos = Producto::select('*')->orderBy('idProducto','ASC');
+        // $productos = Producto::select('*')->orderBy('idProducto','ASC');ygujhh
         $categorias = modelCategorias::select('*')->get();
         $productos = Producto::select('*')->get();
         $productos = Producto::select('*')->orderBy('idProducto', 'ASC');

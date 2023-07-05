@@ -126,37 +126,29 @@
 
     <div class="table-responsive">
 
-        <table class="table table-hover table-info table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido Paterno</th>
-                    <th scope="col">Apellido Materno</th>
-                    <th scope="col">RFC</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Producto</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($clientes as $cliente )
-                <tr>
-                    <th scope="row">{{$cliente->idCliente}}</th>
-                    <td>{{$cliente->nombre}}</td>
-                    <td>{{$cliente->apellidoP}}</td>
-                    <td>{{$cliente->apellidoMaterno}}</td>
-                    <td>{{$cliente->rfc}}</td>
-                    <td>{{$cliente->telefono}}</td>
-                    <td>{{$cliente->correo}}</td>
-                    <td>{{$cliente->direccion}}</td>
-                    <td>{{$cliente->producto->nombre}}</td>
-                </tr>
-                @endforeach
+    <table class="table table-hover table-info table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Detalles</th>
+                                    <th scope="col">Categoria</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($productos as $producto )
+                                <tr>
+                                    <th scope="row">{{$producto->idProducto}}</th>
+                                    <td>{{$producto->nombre}}</td>
+                                    <td>{{$producto->detalles}}</td>
+                                    <td>{{$producto->categorias->nombre}}</td>
 
-            </tbody>
-        </table>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
 
     </div>
 </body>

@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Clientes') }}
-
-
+            {{ __('Stocks') }}
 
         </h2>
     </x-slot>
@@ -14,12 +12,18 @@
 
 
                 <div class="p-6 text-gray-900">
-                    {{-- {{ __("Vista de clientes") }} --}}
+                    {{-- {{ __("Vista de stocks") }} --}}
 
 
-                    <a href="{{ route ('clientes.create') }}" class="btn btn-success"
-                        style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake"
-                            style="color: #ffffff;"></i></i> Nuevo cliente</a>
+                    <div class="column">
+                        <a href="{{ route ('stocks.create') }}" class="btn btn-success"
+                            style="margin-bottom:  25px; margin-top: 17px"><i class="fa-regular fa-plus fa-shake"
+                                style="color: #ffffff;"></i></i> Nuevo stock</a>
+
+                        <a href="{{route ('stocks.pdf') }}" class="btn btn-primary">Generar <i
+                                class="fas fa-sharp fa-light fa-file-pdf"></i>
+                        </a>
+                    </div>
 
                     <div align="right" style="display: inline;">
                         <div class="form-group col-4" style="display: inline">
@@ -34,9 +38,10 @@
                                 id="search" placeholder="Escribe aquí para hacer una búsqueda" aria-label="Search"
                                 value="{{ (isset($_GET['search']))?$_GET['search']:'' }}">
                         </div>
-                    </div>
+                    </div><br><br>
 
                     <div class="table-responsive">
+
 
                         @if(session('message'))
                         <div class="alert alert-success" role="alert">
@@ -49,78 +54,86 @@
                             {{ session('danger') }}
                         </div>
                         @endif
-
-                        <table class="table table-striped">
+                        <table class="table table-hover table-info table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Dirección</th>
-                                    <th style="padding-right: 75px">Acciones</th>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Producto</th> 
+                                    <th scope="col">Proveedor</th> 
+                                    <th scope="col">Precio de compra</th>
+                                    <th scope="col">Precio de Venta</th>
+                                    <th scope="col">cantidad</th>
+                                    <th scope="col">notas</th>
+                                    
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($clientes as $cliente)
+                                @foreach($stocks as $stock )
                                 <tr>
-                                    <th scope="row">{{$cliente->idCliente}}</th>
-                                    <td>{{$cliente->nombre}}</td>
-                                    <td>{{$cliente->telefono}}</td>
-                                    <td>{{$cliente->correo}}</td>
-                                    <td>{{$cliente->direccion}}</td>
+                                    <th scope="row">{{$stock->idStock}}</th>
+                                    <td>{{$stock->productos->nombre}}</td>
+                                    <td>{{$stock->proveedores->nombre}}</td>
+                                    <td>{{$stock->precioCompra}}</td>
+                                    <td>{{$stock->precioVenta}}</td>
+                                    <td>{{$stock->cantidad}}</td>
+                                    <td>{{$stock->notas}}</td>
                                     <td>
 
-                                        <a href="{{route ('clientes.show', $cliente->idCliente)}}"
+                                        <a href="{{route ('stocks.show', $stock->idStock)}}"
                                             class="btn btn-primary"><i class="fa-regular fa-eye"
                                                 style="color: #ffffff;"></i></a>
 
-                                        <a href="{{route ('clientes.edit', $cliente->idCliente)}}"
+                                        <a href="{{route ('stocks.edit', $stock->idStock)}}"
                                             class="btn btn-warning"> <i class="fa-solid fa-pencil"
                                                 style="color: #ffffff;"></i></a>
 
                                         <button type="submit" class="btn btn-danger"
-                                            form="delete_{{$cliente->idCliente}}"
-                                            onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i class="fa-regular fa-trash-xmark" style="color: #ffffff;"></i>
-                                        <form action="{{route('clientes.destroy', $cliente->idCliente)}}"
-                                            id="delete_{{$cliente->idCliente}}" method="post"
+                                            form="delete_{{$stock->idStock}}"
+                                            onclick="return confirm('¿Estás seguro de eliminar el registro?')"><i
+                                                class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+                                        <form action="{{route('stocks.destroy', $stock->idStock)}}"
+                                            id="delete_{{$stock->idStock}}" method="post"
                                             enctype="multipart/form-data" hidden>
                                             @csrf
                                             @method('DELETE')
                                         </form>
 
                                     </td>
+
                                 </tr>
                                 @endforeach
+
                             </tbody>
                         </table>
 
-                        <div class="card-footer">
-                            @if($clientes->total() > 10)
-                            {{$clientes->links()}}
-                            @endif
-                        </div>
+                    </div>
 
+                    <div class="card-footer">
 
+                        @if($stocks->total() > 5)
+                        {{$stocks->links()}}
+                        @endif
 
                     </div>
 
 
 
-                    <!-- VA EN EL INDEX AL FINAL -->
                     @section('scripts')
                     <script type="text/javascript">
                     $('#limit').on('change', function() {
-                        window.location.href = '{{ route('clientes.index') }}?limit=' + $(this).val() + '&search=' + $('#search').val()
+                        window.location.href = '{{ route('stocks.index') }}?limit=' + $(this).val() + '&search=' + $('#search').val()
                     })
 
                     $('#search').on('keyup', function(e) {
                         if (e.keyCode == 13) {
-                            window.location.href = '{{ route('clientes.index') }}?limit=' + $('#limit').val() + '&search=' + $(this).val()
+                            window.location.href = '{{ route('stocks.index') }}?limit=' + $('#limit').val() + '&search=' + $(this).val()
                         }
                     })
                     </script>
                     @endsection
+
+
 
                 </div>
             </div>

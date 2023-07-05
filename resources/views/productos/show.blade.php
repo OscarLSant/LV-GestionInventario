@@ -30,7 +30,7 @@
                             <br><br>
                     
                             <label for=""><b>Categoria: </b></label>
-                            <label for=""> {{$producto->correo}} </label>
+                            <label for="">{{$producto->categorias->nombre}} </label>
                     
                         
                         </div>

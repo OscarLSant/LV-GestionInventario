@@ -134,7 +134,7 @@ class StockController extends Controller
         $stock = $this->createUpdateStock($request, $stock);
         return redirect()
             ->route('stocks.index')
-            ->with('message', 'Registro ACTUALIZADO');
+            ->with('message', 'Registro actualizado');
     }
 
     /**

@@ -37,14 +37,17 @@ class controllerCategorias extends Controller
         return view('categorias.create', compact('categorias'));
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Storeeeeee a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $categoria = new modelCategorias();
         $categoria = $this->createUpdateCategorias($request, $categoria);
-        return redirect()->route('categorias.index');
+        return redirect()
+            ->route('categorias.index')
+            ->with('message', 'Registro AGREGADO');
     }
 
     public function createUpdateCategorias(Request $request, $categoria){
@@ -75,7 +78,11 @@ class controllerCategorias extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categoria = modelCategoria::where('idCategoria', $id)->firstOrFail();
+        $categoria = $this->createUpdateCategorias($request, $categoria);
+        return redirect()
+            ->route('stocks.index')
+            ->with('message', 'Registro actualizado');
     }
 
     /**

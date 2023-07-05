@@ -151,7 +151,7 @@ class StockController extends Controller
         } catch (QueryException $e) {
             return redirect()
                 ->route('stocks.index')
-                ->with('danger', 'Registro no se puede eliminar.');
+                ->with('danger', 'No se puede eliminar el registro.');
         }
 
 

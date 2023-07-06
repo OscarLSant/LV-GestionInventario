@@ -87,7 +87,7 @@
                             <div class="col-xl-6 col-lg-8">
                                 <div class="card l-bg-cherry">
                                     <div class="card-statistic-3 p-4">
-                                        <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i>
+                                        <div class="card-icon card-icon-large"><i class="fa-solid fa-cart-shopping fa-2xl"></i>
                                         </div>
                                         <div class="mb-4">
                                             <h5 class="card-title mb-0">Ventas</h5>
@@ -113,7 +113,7 @@
                             <div class="col-xl-6 col-lg-8">
                                 <div class="card l-bg-blue-dark">
                                     <div class="card-statistic-3 p-4">
-                                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                                        <div class="card-icon card-icon-large"><i class="fa-solid fa-users fa-2xl"></i></div>
                                         <div class="mb-4">
                                             <h5 class="card-title mb-0">Clientes</h5>
                                         </div>
@@ -138,7 +138,7 @@
                             <div class="col-xl-6 col-lg-8">
                                 <div class="card l-bg-green-dark">
                                     <div class="card-statistic-3 p-4">
-                                        <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                                        <div class="card-icon card-icon-large"><i class="fa-sharp fa-solid fa-boxes-stacked fa-2xl"></i></div>
                                         <div class="mb-4">
                                             <h5 class="card-title mb-0">Productos</h5>
                                         </div>
@@ -163,7 +163,7 @@
                             <div class="col-xl-6 col-lg-8">
                                 <div class="card l-bg-orange-dark">
                                     <div class="card-statistic-3 p-4">
-                                        <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                                        <div class="card-icon card-icon-large"><i class="fa-solid fa-ticket fa-2xl"></i></div>
                                         <div class="mb-4">
                                             <h5 class="card-title mb-0">Stocks</h5>
                                         </div>

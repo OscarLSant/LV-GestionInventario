@@ -42,7 +42,6 @@
             font-size: 220px;
             
         }
-        /* <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div> */
         .card .card-statistic-3 .card-icon {
             text-align: center;
             line-height: 50px;

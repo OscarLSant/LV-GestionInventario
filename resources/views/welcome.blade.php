@@ -23,7 +23,7 @@
 
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top"> 
-                <img class="logo-img" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/330/8447973330_ebcee445-b9c5-4748-8835-7a144a1ed496.png?cb=1688440633" alt="" width="70%" height="70%">
+                <img class="logo-img" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/339/8452402339_c5efa6e0-1768-4a8e-8bd5-9e28ee2f14dd.png?cb=1688611997" alt="" role="none" width="50%" height="50%">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu

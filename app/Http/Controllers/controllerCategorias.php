@@ -12,6 +12,12 @@ use PDF;
 
 class controllerCategorias extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:categorias')->only('index', 'edit', 'create', 'update', 'store');   
+    }
+
     /**
      * Display a listing of the resource.
      */

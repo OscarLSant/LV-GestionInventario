@@ -17,19 +17,24 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                        {{ __('Gestión de usuarios') }}
-                    </x-nav-link>
-                </div>
+                @can('usuarios')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
+                            {{ __('Gestión de usuarios') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+                
+                @can('clientes')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Gestión de Clientes') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+                
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                        {{ __('Clientes') }}
-                    </x-nav-link>
-                </div>
-
-
+                @can('proveedores')
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
                         <x-slot name="trigger">
@@ -38,21 +43,30 @@
                             </button>
                         </x-slot>
     
+                        
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('categorias.index')">
-                                {{ __('Categorías') }}
-                            </x-dropdown-link>
+                            @can('categorias')
+                                <x-dropdown-link :href="route('categorias.index')">
+                                    {{ __('Categorías') }}
+                                </x-dropdown-link>
+                            @endcan
     
-                            <x-dropdown-link :href="route('productos.index')">
-                                {{ __('Productos') }}
-                            </x-dropdown-link>
+                            @can('productos')
+                                <x-dropdown-link :href="route('productos.index')">
+                                    {{ __('Productos') }}
+                                </x-dropdown-link>
+                            @endcan
                             
-                            <x-dropdown-link :href="route('proveedores.index')">
-                                {{ __('Proveedores') }}
-                            </x-dropdown-link>
+                            @can('proveedores')
+                                <x-dropdown-link :href="route('proveedores.index')">
+                                    {{ __('Proveedores') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
                         </x-slot>
                     </x-dropdown>
                 </div>
+                @endcan
 
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
@@ -63,22 +77,24 @@
                         </x-slot>
     
                         <x-slot name="content">
-<<<<<<< HEAD
-                            <x-dropdown-link :href="route('stocks.index')">
-                                {{ __('Stocks') }}
-=======
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Stocks / Entradas') }}
->>>>>>> 70873710fc49266128765b1c745ff23adc89caea
-                            </x-dropdown-link>
-    
-                            <x-dropdown-link :href="route('ventas.index')">
-                                {{ __('Ventas') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('venta_stocks.index')">
-                                {{ __('Ventas/Stocks') }}
-                            </x-dropdown-link>
+                            @can('stocks')
+                                <x-dropdown-link :href="route('stocks.index')">
+                                    {{ __('Stocks') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
+                            @can('ventas')
+                                <x-dropdown-link :href="route('ventas.index')">
+                                    {{ __('Ventas') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
+                            @can('venta_stocks')
+                                <x-dropdown-link :href="route('venta_stocks.index')">
+                                    {{ __('Ventas/Stocks') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
 
                         </x-slot>
                     </x-dropdown>
@@ -142,6 +158,71 @@
             </x-responsive-nav-link>
         </div>
 
+        @can('usuarios')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
+                    {{ __('Gestión de usuarios') }}
+                </x-responsive-nav-link>
+            </div>
+        @endcan
+        
+        @can('clientes')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Gestión de Clientes') }}
+                </x-responsive-nav-link>
+            </div>
+        @endcan
+        
+        @can('categorias')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('categorias.index')">
+                    {{ __('Categorías') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('productos')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('productos.index')">
+                    {{ __('Productos') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('proveedores')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('proveedores.index')">
+                    {{ __('Proveedores') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('stocks')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('stocks.index')">
+                    {{ __('Stocks') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('ventas')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('ventas.index')">
+                    {{ __('Ventas') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('venta_stocks')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('venta_stocks.index')">
+                    {{ __('Ventas/Stocks') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
@@ -151,7 +232,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -161,7 +242,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

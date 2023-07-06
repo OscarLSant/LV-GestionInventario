@@ -23,6 +23,9 @@ class controllerCategorias extends Controller
      */
     public function index(Request $request)
     {
+            
+        
+        $categorias = modelCategorias::select('*')->get();
         $categorias = modelCategorias::select('*')->orderBy('idCategoria', 'ASC');
         $limit=(isset($request->limit)) ? $request->limit:5;
 

@@ -63,6 +63,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::resource('usuarios', UserController::class)->names('usuarios');
 
+    //ruta dashboard
     route::resource('dashboard', DashboardController::class)->names('dashboard');
 
 

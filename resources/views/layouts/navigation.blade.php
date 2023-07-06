@@ -12,9 +12,8 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
+                    <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')"
                     class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                    
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
@@ -48,6 +47,24 @@
                             </button>
                         </x-slot>
 <<<<<<<<< Temporary merge branch 1
+=========
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('categorias.index')"
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                                {{ __('Categorías') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('productos.index')"
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                                {{ __('Productos') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('proveedores.index')"
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                                {{ __('Proveedores') }}
+                            </x-dropdown-link>
+>>>>>>>>> Temporary merge branch 2
     
                         
                         <x-slot name="content">
@@ -85,6 +102,9 @@
 
                         <x-slot name="content">
 <<<<<<<<< Temporary merge branch 1
+=========
+                          
+>>>>>>>>> Temporary merge branch 2
                             @can('stocks')
                                 <x-dropdown-link :href="route('stocks.index')">
                                     {{ __('Stocks') }}

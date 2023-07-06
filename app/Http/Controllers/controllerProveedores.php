@@ -10,6 +10,12 @@ use PDF;
 
 class controllerProveedores extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:proveedores')->only('index', 'edit', 'create', 'update', 'store');   
+    }
+
     /**
      * Display a listing of the resource.
      */

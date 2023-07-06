@@ -9,6 +9,7 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VentaStockController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,26 +39,30 @@ Route::middleware('auth')->group(function () {
 
 //rutas de clientes
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::resource('categorias', controllerCategorias::class);
-    Route::get('categorias-pdf', [controllerCategorias::class, 'exportPDF'])->name('categorias.pdf');
+    Route::resource('categorias', controllerCategorias::class)->names('categorias');
+    Route::get('categorias-pdf', [controllerCategorias::class, 'exportPDF'])->name('categorias.pdf')->middleware('can:categorias.pdf');
 
-    Route::resource('proveedores', controllerProveedores::class);
-    Route::get('proveedores-pdf', [controllerProveedores::class, 'exportPDF'])->name('proveedores.pdf');
+    Route::resource('proveedores', controllerProveedores::class)->names('proveedores');
+    Route::get('proveedores-pdf', [controllerProveedores::class, 'exportPDF'])->name('proveedores.pdf')->middleware('can:proveedores.pdf');
 
-    Route::resource('clientes', controllerClientes::class);
-    Route::get('clientes-pdf', [controllerClientes::class, 'exportPDF'])->name('clientes.pdf');
+    Route::resource('clientes', controllerClientes::class)->names('clientes');
+    Route::get('clientes-pdf', [controllerClientes::class, 'exportPDF'])->name('clientes.pdf')->middleware('can:clientes.pdf');
 
-    Route::resource('productos', ProductoController::class);
-    Route::get('productos-pdf', [ProductoController::class, 'exportPDF'])->name('productos.pdf');
+    Route::resource('productos', ProductoController::class)->names('productos');
+    Route::get('productos-pdf', [ProductoController::class, 'exportPDF'])->name('productos.pdf')->middleware('can:productos.pdf');
 
-    Route::resource('stocks', StockController::class);
-    Route::get('stocks-pdf', [StockController::class, 'exportPDF'])->name('stocks.pdf');
+    Route::resource('stocks', StockController::class)->names('stocks');
+    Route::get('stocks-pdf', [StockController::class, 'exportPDF'])->name('stocks.pdf')->middleware('can:stocks.pdf');
 
-    Route::resource('ventas', VentaController::class);
-    Route::get('ventas-pdf', [VentaController::class, 'exportPDF'])->name('ventas.pdf');
+    Route::resource('ventas', VentaController::class)->names('ventas');
+    Route::get('ventas-pdf', [VentaController::class, 'exportPDF'])->name('ventas.pdf')->middleware('can:ventas.pdf');
 
-    Route::resource('venta_stocks', VentaStockController::class);
-    Route::get('venta_stocks-pdf', [VentaStockController::class, 'exportPDF'])->name('venta_stocks.pdf');
+    Route::resource('venta_stocks', VentaStockController::class)->names('venta_stocks');
+    Route::get('venta_stocks-pdf', [VentaStockController::class, 'exportPDF'])->name('venta_stocks.pdf')->middleware('can:venta_stocks.pdf');
+
+    Route::resource('usuarios', UserController::class)->names('usuarios');
+
+
 });
 
 

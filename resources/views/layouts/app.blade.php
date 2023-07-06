@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Abrrotes Canuas</title>
+        {{-- <title>{{ config('app.name', 'Abarrotes Canuas') }}</title> --}}
 
         {{-- bootstrap --}}
 
@@ -50,6 +51,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+            
             @include('layouts.navigation')
 
             <!-- Page Heading -->

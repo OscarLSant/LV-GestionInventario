@@ -14,6 +14,12 @@ use Illuminate\Database\QueryException;
 
 class VentaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:ventas')->only('index', 'edit', 'create', 'update', 'store');   
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -15,6 +15,12 @@ use Illuminate\Database\QueryException;
 
 class ProductoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:productos')->only('index', 'edit', 'create', 'update', 'store');   
+    }
+
     /**
      * Display a listing of the resource.
      */

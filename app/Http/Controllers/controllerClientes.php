@@ -9,6 +9,12 @@ use PDF;
 
 class controllerClientes extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:clientes')->only('index', 'edit', 'create', 'update', 'store');   
+    }
+
     /**
      * Display a listing of the resource.
      */

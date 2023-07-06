@@ -13,79 +13,111 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
-                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
+                    class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                     
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')" 
-                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                        {{ __('Gestión de usuarios') }}
-                    </x-nav-link>
-                </div>
+                @can('usuarios')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')"
+                        class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                            {{ __('Gestión de usuarios') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+                
+                @can('clientes')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')"
+                        class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                            {{ __('Gestión de Clientes') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+                
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')"
-                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                        {{ __('Clientes') }}
-                    </x-nav-link>
-                </div>
-
-
-                <div class="hidden sm:flex sm:items-center sm:ml-6" >
+                @can('proveedores')
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
                         <x-slot name="trigger">
                             <button
-                            class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-yellow-100 bg-black hover:text-yellow-300 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-white bg-black hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Gestión de Productos') }}</div>
                             </button>
                         </x-slot>
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('categorias.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 {{ __('Categorías') }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('productos.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 {{ __('Productos') }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('proveedores.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
+                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 {{ __('Proveedores') }}
                             </x-dropdown-link>
+    
+                        
+                        <x-slot name="content">
+                            @can('categorias')
+                                <x-dropdown-link :href="route('categorias.index')">
+                                    {{ __('Categorías') }}
+                                </x-dropdown-link>
+                            @endcan
+    
+                            @can('productos')
+                                <x-dropdown-link :href="route('productos.index')">
+                                    {{ __('Productos') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
+                            @can('proveedores')
+                                <x-dropdown-link :href="route('proveedores.index')">
+                                    {{ __('Proveedores') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
                         </x-slot>
                     </x-dropdown>
                 </div>
+                @endcan
 
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-yellow-100 bg-black hover:text-yellow-300 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-white bg-black hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Gestión de Existencias') }}</div>
                             </button>
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('stocks.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Stocks') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('ventas.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Ventas') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('venta_stocks.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Ventas/Stocks') }}
-                            </x-dropdown-link>
+                          
+                            @can('stocks')
+                                <x-dropdown-link :href="route('stocks.index')">
+                                    {{ __('Stocks') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
+                            @can('ventas')
+                                <x-dropdown-link :href="route('ventas.index')">
+                                    {{ __('Ventas') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
+                            @can('venta_stocks')
+                                <x-dropdown-link :href="route('venta_stocks.index')">
+                                    {{ __('Ventas/Stocks') }}
+                                </x-dropdown-link>
+                            @endcan
+                            
 
                         </x-slot>
                     </x-dropdown>
@@ -158,6 +190,71 @@
             </x-responsive-nav-link>
         </div>
 
+        @can('usuarios')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
+                    {{ __('Gestión de usuarios') }}
+                </x-responsive-nav-link>
+            </div>
+        @endcan
+        
+        @can('clientes')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Gestión de Clientes') }}
+                </x-responsive-nav-link>
+            </div>
+        @endcan
+        
+        @can('categorias')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('categorias.index')">
+                    {{ __('Categorías') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('productos')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('productos.index')">
+                    {{ __('Productos') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('proveedores')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('proveedores.index')">
+                    {{ __('Proveedores') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('stocks')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('stocks.index')">
+                    {{ __('Stocks') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('ventas')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('ventas.index')">
+                    {{ __('Ventas') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+        @can('venta_stocks')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-dropdown-link :href="route('venta_stocks.index')">
+                    {{ __('Ventas/Stocks') }}
+                </x-dropdown-link>
+            </div>
+        @endcan
+        
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200" >
             <div class="px-4">
@@ -167,7 +264,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -176,7 +273,7 @@
 
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

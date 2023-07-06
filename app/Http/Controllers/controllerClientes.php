@@ -48,9 +48,13 @@ class controllerClientes extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $cliente = new modelClientes();
         $cliente = $this->createUpdateClientes($request, $cliente);
-        return redirect()->route('clientes.index');
+        return redirect()
+            ->route('clientes.index')
+            ->with('message', 'Registro agregado');
     }
 
     public function createUpdateClientes(Request $request, $cliente){
@@ -84,9 +88,15 @@ class controllerClientes extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // $cliente = modelClientes::where('idCliente', $id)->firstOrFail();
+        // $cliente = $this->createUpdateClientes($request, $cliente);
+        // return redirect()->route('clientes.index');
+
         $cliente = modelClientes::where('idCliente', $id)->firstOrFail();
         $cliente = $this->createUpdateClientes($request, $cliente);
-        return redirect()->route('clientes.index');
+        return redirect()
+            ->route('clientes.index')
+            ->with('message', 'Registro actualizado');
     }
 
     /**

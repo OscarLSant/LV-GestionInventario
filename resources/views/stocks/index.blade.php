@@ -57,7 +57,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #1B1B1B;">
-                                        <h5 class=" text-white" id="exampleModalCLabel">Agregar cliente</h5>
+                                        <h5 class=" text-white" id="exampleModalCLabel">Agregar stock</h5>
                                         <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">

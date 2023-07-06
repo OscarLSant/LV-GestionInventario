@@ -49,9 +49,15 @@ class controllerProveedores extends Controller
      */
     public function store(Request $request)
     {
+        // $proveedor = new modelProveedores();
+        // $proveedor = $this->createUpdateProveedor($request, $proveedor);
+        // return redirect()->route('proveedores.index');
+
         $proveedor = new modelProveedores();
         $proveedor = $this->createUpdateProveedor($request, $proveedor);
-        return redirect()->route('proveedores.index');
+        return redirect()
+            ->route('proveedores.index')
+            ->with('message', 'Registro agregado');
     }
 
     public function createUpdateProveedor(Request $request, $proveedor){
@@ -86,9 +92,15 @@ class controllerProveedores extends Controller
      */
     public function update(Request $request,  $id)
     {
+        // $proveedor = modelProveedores::where('idProveedor', $id)->firstOrFail();
+        // $proveedor = $this->createUpdateProveedor($request, $proveedor);
+        // return redirect()->route('proveedores.index');
+
         $proveedor = modelProveedores::where('idProveedor', $id)->firstOrFail();
         $proveedor = $this->createUpdateProveedor($request, $proveedor);
-        return redirect()->route('proveedores.index');
+        return redirect()
+            ->route('proveedores.index')
+            ->with('message', 'Registro actualizado');
     }
 
     /**

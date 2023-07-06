@@ -101,10 +101,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-<<<<<<<<< Temporary merge branch 1
-=========
-                          
->>>>>>>>> Temporary merge branch 2
+
                             @can('stocks')
                                 <x-dropdown-link :href="route('stocks.index')">
                                     {{ __('Stocks') }}

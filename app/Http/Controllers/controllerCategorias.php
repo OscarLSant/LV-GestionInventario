@@ -56,7 +56,7 @@ class controllerCategorias extends Controller
         $categoria = $this->createUpdateCategorias($request, $categoria);
         return redirect()
             ->route('categorias.index')
-            ->with('message', 'Registro AGREGADO');
+            ->with('message', 'Registro agregado');
     }
 
     public function createUpdateCategorias(Request $request, $categoria){

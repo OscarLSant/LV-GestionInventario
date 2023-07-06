@@ -57,7 +57,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #1B1B1B;">
                                         <h5 class=" text-white" id="exampleModalCLabel">Agregar proveedor</h5>
-
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="{{ route ('proveedores.store') }}" method="POST"
@@ -66,8 +66,7 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancelar</button>
+                                        
 
                                         <button class="btn btn-success" form="create">Agregar</button>
 
@@ -143,7 +142,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color: #1B1B1B;">
                                             <h5 class=" text-white" id="exampleModalELabel">Editar proveedor</h5>
-
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form action="{{ route ('proveedores.update', $proveedor->idProveedor) }}"
@@ -153,8 +152,7 @@
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
+                                           
 
                                             <button class="btn btn-success" form="edit">Actualizar</button>
 

@@ -111,9 +111,14 @@
                                                 class="btn btn-primary"><i class="fa-regular fa-eye"
                                                     style="color: #ffffff;"></i></a>
 
-                                            <a href="{{route ('ventas.edit', $venta->idVenta)}}"
+                                            <!-- <a href="{{route ('ventas.edit', $venta->idVenta)}}"
                                                 class="btn btn-warning"> <i class="fa-solid fa-pencil"
-                                                    style="color: #ffffff;"></i></a>
+                                                    style="color: #ffffff;"></i></a> -->
+
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalE" form="put_{{$venta->idVenta}}">
+                                                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+                                            </button>
 
                                             <button type="submit" class="btn btn-danger"
                                                 form="delete_{{$venta->idVenta}}"
@@ -133,6 +138,31 @@
 
                                 </tbody>
                             </table>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalE" tabindex="-1"
+                                aria-labelledby="exampleModalELabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color: #1B1B1B;">
+                                            <h5 class=" text-white" id="exampleModalELabel">Editar  venta</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route ('ventas.update', $venta->idVenta ) }}"
+                                                method="POST" enctype="multipart/form-data" id="edit">
+                                                @method('PUT')
+                                                @include('ventas.partials.form')
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            
+
+                                                <button class="btn btn-success" form="edit">Actualizar</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 

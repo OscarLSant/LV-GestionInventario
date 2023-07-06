@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\controllerCategorias;
 use App\Http\Controllers\controllerClientes;
 use App\Http\Controllers\controllerProveedores;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\StockController;
@@ -27,9 +28,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -61,6 +62,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('venta_stocks-pdf', [VentaStockController::class, 'exportPDF'])->name('venta_stocks.pdf')->middleware('can:venta_stocks.pdf');
 
     Route::resource('usuarios', UserController::class)->names('usuarios');
+
+    route::resource('dashboard', DashboardController::class)->names('dashboard');
 
 
 });

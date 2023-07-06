@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Clientes;
 
 class HomeController extends Controller
 {
@@ -25,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $query = Clientes::count();
-        return view('home', compact('query'));
+        return view('home');
     }
 }

@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
-                    class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
+                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
                     
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -47,22 +47,7 @@
                                 <div>{{ __('Gestión de Productos') }}</div>
                             </button>
                         </x-slot>
-
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('categorias.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Categorías') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('productos.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Productos') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('proveedores.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Proveedores') }}
-                            </x-dropdown-link>
+<<<<<<<<< Temporary merge branch 1
     
                         
                         <x-slot name="content">
@@ -99,7 +84,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                          
+<<<<<<<<< Temporary merge branch 1
                             @can('stocks')
                                 <x-dropdown-link :href="route('stocks.index')">
                                     {{ __('Stocks') }}
@@ -149,7 +134,7 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')"
                         class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -159,7 +144,7 @@
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();"
                                                 class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -185,7 +170,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden" >
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>

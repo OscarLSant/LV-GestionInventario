@@ -46,42 +46,26 @@
                                 <div>{{ __('Gestión de Productos') }}</div>
                             </button>
                         </x-slot>
-<<<<<<<<< Temporary merge branch 1
-=========
 
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('categorias.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Categorías') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('productos.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Productos') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('proveedores.index')"
-                            class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Proveedores') }}
-                            </x-dropdown-link>
->>>>>>>>> Temporary merge branch 2
-    
                         
                         <x-slot name="content">
                             @can('categorias')
-                                <x-dropdown-link :href="route('categorias.index')">
+                                <x-dropdown-link :href="route('categorias.index')"
+                                class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                     {{ __('Categorías') }}
                                 </x-dropdown-link>
                             @endcan
     
                             @can('productos')
-                                <x-dropdown-link :href="route('productos.index')">
+                                <x-dropdown-link :href="route('productos.index')"
+                                class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                     {{ __('Productos') }}
                                 </x-dropdown-link>
                             @endcan
                             
                             @can('proveedores')
-                                <x-dropdown-link :href="route('proveedores.index')">
+                                <x-dropdown-link :href="route('proveedores.index')"
+                                class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                                     {{ __('Proveedores') }}
                                 </x-dropdown-link>
                             @endcan

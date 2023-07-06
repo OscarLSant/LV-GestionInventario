@@ -19,7 +19,7 @@
                             <div class="row">
                                 <div class="col-2">
 
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-success"    data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
                                         <i class="fa-regular fa-plus fa-shake" style="color: #ffffff;"></i>Nueva
                                         categoria

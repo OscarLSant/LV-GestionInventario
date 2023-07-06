@@ -19,7 +19,7 @@
                     
                         <div class="col align-self-center">
                     
-                            <label for=""><b>Nomnbre: </b></label>
+                            <label for=""><b>Nombre: </b></label>
                             <label for=""> {{$producto->nombre}} </label>
                             
                             <br><br>

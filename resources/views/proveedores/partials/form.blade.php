@@ -4,7 +4,7 @@
     <div class="col align-self-start">
     </div>
 
-    <div class="col align-self-center">
+    <div >
 
         <label for="">Nombre</label>
         <input class="form-control" type="text" placeholder="Nombre del proveedor" name="nombre" value="{{ (isset($proveedor)) ? $proveedor->nombre : old('nombre') }}" required>

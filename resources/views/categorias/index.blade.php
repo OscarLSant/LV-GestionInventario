@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-
+<br>
 
 
                         <!-- Modal -->
@@ -38,7 +38,7 @@
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header" style="background-color: #000000;">
+                                    <div class="modal-header" style="background-color: #1B1B1B;">
                                         <h5 class=" text-white" id="exampleModalLabel">Formulario para crear una
                                             categoria</h5>
 

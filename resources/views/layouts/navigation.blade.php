@@ -12,14 +12,12 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
+                    <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')"
                     class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                    
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
-<<<<<<< HEAD
                 @can('usuarios')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
@@ -39,24 +37,6 @@
 
                 @can('proveedores')
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-=======
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')" 
-                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                        {{ __('Gestión de usuarios') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')"
-                    class=" text-red-100 hover:text-red-300 focus:outline-none transition ease-in-out duration-150">
-                        {{ __('Clientes') }}
-                    </x-nav-link>
-                </div>
-
-
-                <div class="hidden sm:flex sm:items-center sm:ml-6" >
->>>>>>> cf54dfab821726d2a147761f51cb00567ddff43d
                     <x-dropdown width="48">
                         <x-slot name="trigger">
                             <button
@@ -64,7 +44,6 @@
                                 <div>{{ __('Gestión de Productos') }}</div>
                             </button>
                         </x-slot>
-<<<<<<< HEAD
     
                         
                         <x-slot name="content">
@@ -86,24 +65,6 @@
                                 </x-dropdown-link>
                             @endcan
                             
-=======
-
-                        <x-slot name="content">
-                            <x-dropdown-link :href="route('categorias.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Categorías') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('productos.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Productos') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('proveedores.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Proveedores') }}
-                            </x-dropdown-link>
->>>>>>> cf54dfab821726d2a147761f51cb00567ddff43d
                         </x-slot>
                     </x-dropdown>
                 </div>
@@ -119,7 +80,6 @@
                         </x-slot>
 
                         <x-slot name="content">
-<<<<<<< HEAD
                             @can('stocks')
                                 <x-dropdown-link :href="route('stocks.index')">
                                     {{ __('Stocks') }}
@@ -138,22 +98,6 @@
                                 </x-dropdown-link>
                             @endcan
                             
-=======
-                            <x-dropdown-link :href="route('stocks.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Stocks') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('ventas.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Ventas') }}
-                            </x-dropdown-link>
-
-                            <x-dropdown-link :href="route('venta_stocks.index')"
-                            class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Ventas/Stocks') }}
-                            </x-dropdown-link>
->>>>>>> cf54dfab821726d2a147761f51cb00567ddff43d
 
                         </x-slot>
                     </x-dropdown>
@@ -185,7 +129,7 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')"
                         class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -195,7 +139,7 @@
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();"
                                                 class=" text-yellow-800 hover:text-yellow-500 focus:outline-none transition ease-in-out duration-150">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -221,7 +165,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden" >
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>

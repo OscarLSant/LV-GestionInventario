@@ -20,7 +20,8 @@
 
                 @can('usuarios')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">
+                        <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')"
+                        class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                             {{ __('Gestión de usuarios') }}
                         </x-nav-link>
                     </div>
@@ -28,7 +29,8 @@
                 
                 @can('clientes')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')"
+                        class=" text-white hover:text-white focus:outline-none transition ease-in-out duration-150">
                             {{ __('Gestión de Clientes') }}
                         </x-nav-link>
                     </div>
@@ -40,7 +42,7 @@
                     <x-dropdown width="48">
                         <x-slot name="trigger">
                             <button
-                            class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-yellow-100 bg-black hover:text-yellow-300 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-white bg-black hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Gestión de Productos') }}</div>
                             </button>
                         </x-slot>
@@ -74,7 +76,7 @@
                     <x-dropdown width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-yellow-100 bg-black hover:text-yellow-300 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2  text-sm leading-4 font-medium rounded-md text-white bg-black hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Gestión de Existencias') }}</div>
                             </button>
                         </x-slot>

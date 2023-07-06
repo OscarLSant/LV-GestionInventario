@@ -10,10 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <h1 style="text-align: center; font-size: 25px">Venta número: {{ $venta->idventa}} </h1>
+                    <!-- <h1 style="text-align: center; font-size: 25px">Venta número:  </h1>
                     <a href="{{ route('ventas.index') }}" class="btn btn-danger"><i class="fa-solid fa-arrow-left fa-shake" style="color: #ffffff;"></i> Regresar</a>
                     
-                    
+                     -->
                     <br><br>
                     <div>
                         <form action="{{ route ('ventas.store') }}" method="POST" enctype="multipart/form-data" id="create">
